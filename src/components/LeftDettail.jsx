@@ -113,8 +113,11 @@ function LeftDettail(props) {
           outline
           color={dontHaveNon() ? "secondary" : "success"}
           className="border-1 p-2 px-4 rounded-pill"
+          style={{
+            borderWidth: "4px"
+          }}
         >
-          <h2>افزودن یه سید خرید </h2>
+          <h2>افزودن به سید خرید </h2>
         </Button>
       </div>
       <p className="p-4 text-center">

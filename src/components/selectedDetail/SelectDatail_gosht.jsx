@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Tooltip from "react-tooltip-lite";
 // import chiz1 from "../../assets/chiz1.png";
 // import chiz2 from "../../assets/chiz2.png";

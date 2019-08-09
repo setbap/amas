@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, NavbarBrand, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Pizza from "./components/Pizza";
 import SelectDatail from "./components/SelectDatail";
 import MainContent from "./components/MainContent";
@@ -51,7 +51,6 @@ function App(props) {
               className="mg-top-16 text-right"
               style={{ marginBottom: "48px" }}
             >
-              {" "}
               ‍پیتزای من
             </h3>
             <LeftDettail />
