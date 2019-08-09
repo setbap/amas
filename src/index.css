@@ -19,7 +19,7 @@ body {
 }
 
 .full-page {
-  height: calc(100vh - 56px);
+  height: 100vh;
 }
 
 .main-pizza {
