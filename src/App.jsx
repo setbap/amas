@@ -37,9 +37,6 @@ function App(props) {
 
   return (
     <>
-      <Navbar color="dark" dark>
-        <NavbarBrand href="/">pizaae</NavbarBrand>
-      </Navbar>
       <Row style={{ margin: 0 }}>
         <Col
           xs="3"
