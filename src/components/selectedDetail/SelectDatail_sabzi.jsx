@@ -27,7 +27,7 @@ function SelectDatail() {
               store.dispatch(selectedFood(sabzi));
             }}
           >
-            <img src={chiz2} alt={sabzi.name} />{" "}
+            <img src={sabzi.icon1} alt={sabzi.name} />{" "}
           </div>
         </Tooltip>
       ))}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "reactstrap";
+import left_arrow from "./assets/left/left-arrow.png";
+import right_arrow from "./assets/left/right-arrow.png";
 import Pizza from "./components/Pizza";
 import SelectDatail from "./components/SelectDatail";
 import MainContent from "./components/MainContent";
@@ -70,14 +72,26 @@ function App(props) {
           <Pizza />
           <SelectDatail num={selecteditem} />
           <div className="d-flex justify-content-around align-self-center align-items-center w-100">
-            <h5 className="p-2 bg-danger rounded-lg" onClick={dencreaseNum}>
-              {"قبلی"}
-            </h5>
+            <div
+              style={{
+                cursor: "pointer"
+              }}
+              className="p-3 bg-warning rounded-circle"
+              onClick={dencreaseNum}
+            >
+              <img src={left_arrow} alt=" left arrow" />
+            </div>
 
             <MainContent num={selecteditem} selector={selector} />
-            <h5 className="p-2 bg-danger rounded-lg" onClick={increaseNum}>
-              {"بعدی"}
-            </h5>
+            <div
+              style={{
+                cursor: "pointer"
+              }}
+              className="p-3 bg-warning rounded-circle"
+              onClick={increaseNum}
+            >
+              <img src={right_arrow} className="m-0" alt=" right arrow" />
+            </div>
           </div>
         </Col>
       </Row>

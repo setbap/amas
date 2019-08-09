@@ -1,6 +1,5 @@
 import React from "react";
 import Tooltip from "react-tooltip-lite";
-import chiz1 from "../../assets/chiz1.png";
 import { non_data } from "../../data";
 import { selectedFood } from "../../action";
 import store from "../../store";
@@ -35,7 +34,7 @@ function SelectDatail() {
               store.dispatch(selectedFood(non));
             }}
           >
-            <img src={chiz1} alt={non.name} />{" "}
+            <img src={non.icon1} alt={non.name} />{" "}
           </div>
         </Tooltip>
       ))}

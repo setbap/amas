@@ -35,7 +35,7 @@ function SelectDatail() {
               store.dispatch(selectedFood(sos));
             }}
           >
-            <img src={chiz3} alt={sos.name} />{" "}
+            <img src={sos.icon1} alt={sos.name} />{" "}
           </div>
         </Tooltip>
       ))}

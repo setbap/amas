@@ -1,7 +1,6 @@
 import React from "react";
 import Tooltip from "react-tooltip-lite";
 // import chiz1 from "../assets/chiz1.png";
-import chiz2 from "../../assets/chiz2.png";
 // import chiz3 from "../../assets/chiz3.png";
 import { panir_data } from "../../data";
 import { selectedFood } from "../../action";
@@ -34,7 +33,7 @@ function SelectDatail() {
               store.dispatch(selectedFood(panir));
             }}
           >
-            <img src={chiz2} alt={panir.name} />{" "}
+            <img src={panir.icon1} alt={panir.name} />{" "}
           </div>
         </Tooltip>
       ))}

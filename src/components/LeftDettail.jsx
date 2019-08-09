@@ -55,7 +55,7 @@ function LeftDettail(props) {
     <div className="text-right w-100 mx-2">
       <div className="d-flex justify-content-start flex-row-reverse">
         <img src={binamImg} alt="بی نام" className="ml-2" />
-        <h5>بی نام</h5>
+        <h5>نان</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
         <TransitionGroup className="items-section__list">
@@ -77,7 +77,7 @@ function LeftDettail(props) {
       {/*  ////////////// */}
       <div className="d-flex justify-content-start flex-row-reverse">
         <img src={panirImg} alt="پنیز" className="ml-2" />
-        <h5>پنیز</h5>
+        <h5>پنیر</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
         {panir.map(item => {
@@ -117,7 +117,7 @@ function LeftDettail(props) {
             borderWidth: "4px"
           }}
         >
-          <h2>افزودن به سید خرید </h2>
+          <h2>افزودن به سبد خرید </h2>
         </Button>
       </div>
       <p className="p-4 text-center">
