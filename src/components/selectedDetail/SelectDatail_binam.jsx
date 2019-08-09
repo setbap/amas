@@ -8,6 +8,12 @@ import store from "../../store";
 // import connectWithTransitionGroup from "connect-with-transition-group";
 
 function SelectDatail() {
+  const foods = store.getState().foods;
+  const isSelected = id => {
+    const res = foods.findIndex(food => food.id === id);
+    console.log("resss", res);
+    return res !== -1;
+  };
   // const images = [
   //   { src: chiz1, name: "یک" },
   //   { src: chiz2, name: "دو" },
@@ -16,11 +22,16 @@ function SelectDatail() {
   console.log(store.getState());
 
   return (
-    <div className="pa d-flex border-0 rounded-pill">
+    <div
+      className="pa d-flex border-0 rounded-pill"
+      style={{
+        backgroundColor: "#49282876"
+      }}
+    >
       {non_data.map((non, index) => (
         <Tooltip content={non.name} key={index}>
           <div
-            className="si-box-item"
+            className={`si-box-item ${isSelected(non.id) ? "active-si" : ""}`}
             onClick={() => {
               store.dispatch(selectedFood(non));
             }}

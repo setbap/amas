@@ -2,9 +2,10 @@ body {
   margin: 0;
   width: 100%;
   height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
+  font-family: "Vazir", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,11 +23,11 @@ body {
 }
 
 .main-pizza {
-  margin-top: 100px;
+  margin-top: 57px;
 }
 
 .si-box-mg {
-  margin-top: 72px;
+  margin-top: 66px;
 }
 
 .si-box {
@@ -40,20 +41,23 @@ body {
 }
 .pa {
   position: absolute;
-  background-color: rgba(152, 72, 72, 0.46);
+  /* background-color: rgba(152, 72, 72, 0.46); */
 }
 
 .si-box-item {
   padding: 4px;
   margin: 0 4px;
   border: 2px solid transparent;
-
   border-radius: 50%;
   transition: all 0.47s;
 }
 
+.si-box-item.active-si {
+  background-color: rgba(90, 255, 57, 0.44);
+}
+
 .si-box-item:hover {
-  border: 2px solid #eabc4c;
+  border: 2px solid yellow;
 }
 
 .react-tooltip-lite {
@@ -83,7 +87,7 @@ body {
 
 .main-item:hover {
   height: 142px;
-  border: 2px solid #eabc4c;
+  border: 2px solid transparent;
 }
 
 .s-active {
@@ -126,7 +130,7 @@ body {
 
 .main-item-img {
   height: 74px;
-  transform: translate(0px, -17px);
+  transform: translate(0px, -13px);
   transition: all 0.64s ease;
 }
 
@@ -136,7 +140,7 @@ body {
 }
 .main-item:hover .main-item-img {
   opacity: 1;
-  transform: translate(0px, 0px);
+  /* transform: translate(0px, 0px); */
 }
 
 /* 
@@ -185,4 +189,13 @@ select animation
   opacity: 0.01;
   /* transform: translate(40px, 0); */
   transition: all 500ms ease-in;
+}
+
+.border-my-dark {
+  border: 2px solid rgba(88, 82, 82, 0.582);
+}
+
+.mini-close-btn {
+  color: green;
+  background-color: transparent;
 }

@@ -9,11 +9,11 @@ import { connect } from "react-redux";
 
 function MainContent(props) {
   const data = [
-    { image: gosht, id: 1, name: "گوشت", color: "#984848" },
-    { image: sabzijat, id: 2, name: "سبزیجات", color: "#37a978" },
-    { image: panir, id: 3, name: "پنیر", color: "#904cea" },
     { image: binam, id: 4, name: "نان", color: "#492828" },
-    { image: sos, id: 5, name: "سس", color: "#eabc4c" }
+    { image: sos, id: 5, name: "سس", color: "#eabc4c" },
+    { image: panir, id: 3, name: "پنیر", color: "#904cea" },
+    { image: gosht, id: 1, name: "گوشت", color: "#984848" },
+    { image: sabzijat, id: 2, name: "سبزیجات", color: "#37a978" }
   ];
   return (
     <div className="main-box d-flex align-items-end   justify-content-around">

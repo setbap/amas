@@ -7,7 +7,7 @@ import MainContent from "./components/MainContent";
 import LeftDettail from "./components/LeftDettail";
 import { connect } from "react-redux";
 function App(props) {
-  const [selecteditem, setSelecteditem] = useState(0);
+  const [selecteditem, setSelecteditem] = useState(3);
 
   const selector = num => {
     console.log(num);

@@ -20,8 +20,6 @@ export const selectedPart = num => {
 };
 
 export const selectedFood = food => {
-  console.log("new food", food);
-
   const part = food.parentId;
   if (part === "3") {
     return {

@@ -7,7 +7,7 @@ import { Button } from "reactstrap";
 import { removeFood } from "../action";
 import sosImg from "../assets/left/sos.png";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-
+import close from "../assets/left/close.png";
 // import { CHANGE_MAME } from '../action';
 import { connect } from "react-redux";
 
@@ -26,7 +26,7 @@ function LeftDettail(props) {
   const pill = (name, id) => (
     <CSSTransition key={id} timeout={500} classNames="move">
       <div
-        className="border d-flex m-1  border-light py-0 px-2 rounded-pill"
+        className=" d-flex m-1  border-my-dark py-0 px-2 rounded-pill"
         style={{ direction: "rtl" }}
       >
         <h6
@@ -35,13 +35,13 @@ function LeftDettail(props) {
         >
           {name}
         </h6>
-        <span
-          style={{ fontSize: "9px", cursor: "pointer" }}
+        <img
+          src={close}
+          alt="close btn"
+          style={{ cursor: "pointer" }}
           onClick={() => props.removeFood(id)}
-          className=" border px-1 bg-light text-body py-0 my-2  rounded-pill"
-        >
-          x
-        </span>
+          className="  px-2  py-2 my-1 mini-close-btn rounded-pill"
+        />
       </div>
     </CSSTransition>
   );
@@ -64,9 +64,7 @@ function LeftDettail(props) {
           })}
         </TransitionGroup>
       </div>
-
       {/*  ////////////// */}
-
       <div className="d-flex justify-content-start flex-row-reverse">
         <img src={sosImg} alt="سس" className="ml-2" />
         <h5>سس</h5>
@@ -77,7 +75,6 @@ function LeftDettail(props) {
         })}
       </div>
       {/*  ////////////// */}
-
       <div className="d-flex justify-content-start flex-row-reverse">
         <img src={panirImg} alt="پنیز" className="ml-2" />
         <h5>پنیز</h5>
@@ -88,7 +85,6 @@ function LeftDettail(props) {
         })}
       </div>
       {/*  ////////////// */}
-
       <div className="d-flex justify-content-start flex-row-reverse">
         <img src={goshtImg} alt="گوشت" className="ml-2" />
         <h5>گوشت</h5>
@@ -99,7 +95,6 @@ function LeftDettail(props) {
         })}
       </div>
       {/*  ////////////// */}
-
       <div className="d-flex justify-content-start flex-row-reverse">
         <img src={sabzijatImg} alt="سبزیجات" className="ml-2" />
         <h5>سبزیجات</h5>
@@ -108,19 +103,19 @@ function LeftDettail(props) {
         {sabzi.map(item => {
           return pill(item.name, item.id);
         })}
+      </div>{" "}
+      <div className="mt-5 d-flex flex-row-reverse justify-content-center">
+        <h3 className="mx-1 text-success">{totalPrice()}</h3> <h4>تومان</h4>
       </div>
-      <div className="mt-5 d-flex flex-row-reverse justify-content-around">
+      <div className="mt-3 d-flex flex-row-reverse justify-content-around">
         <Button
           disabled={dontHaveNon()}
           outline
           color={dontHaveNon() ? "secondary" : "success"}
           className="border-1 p-2 px-4 rounded-pill"
         >
-          <h2>سفارش </h2>
+          <h2>افزودن یه سید خرید </h2>
         </Button>
-        <span className="pt-3 d-flex">
-          <h3 className="mx-1 text-success">{totalPrice()}</h3> <h4>تومان</h4>
-        </span>
       </div>
       <p className="p-4 text-center">
         {dontHaveNon() ? "تا قبل از انتخاب نان نمیتوانید سفارش دهید" : ""}
