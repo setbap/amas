@@ -7,7 +7,110 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.mg-top-16 {
+  margin-top: 16px;
+}
+
+.mg-right-32 {
+  margin-right: 32px;
+}
+
+.full-page {
+  height: calc(100vh - 56px);
+}
+
+.main-pizza {
+  margin-top: 100px;
+}
+
+.si-box-mg {
+  margin-top: 72px;
+}
+
+.si-box {
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: rgba(152, 72, 72, 0.46);
+  padding: 4px;
+}
+
+.si-box-item {
+  padding: 4px;
+  margin: 0 4px;
+  border: 2px solid transparent;
+
+  border-radius: 50%;
+  transition: all 0.47s;
+}
+
+.si-box-item:hover {
+  border: 2px solid #eabc4c;
+}
+
+.react-tooltip-lite {
+  background: #333;
+  color: white;
+  border-radius: 8px;
+}
+
+.react-tooltip-lite-arrow {
+  border-color: #333;
+}
+
+.main-box {
+  margin-top: 36px;
+  margin-bottom: 56px;
+  height: 142px;
+}
+
+.main-item {
+  width: 132px;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 102px;
+  transition: all 0.7s;
+  border: 2px solid transparent;
+}
+
+.main-item:hover {
+  height: 142px;
+  border: 2px solid #eabc4c;
+}
+
+.main-item-text {
+  padding: 14px;
+}
+
+.main-item-img {
+  padding: 7px 14px 21px 14px;
+}
+
+.mx36 {
+  margin-left: 18px !important;
+}
+
+.mx36 {
+  margin-right: 18px !important;
+}
+
+.main-item-text {
+  height: 26px;
+  font-size: 18px;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.44s 0.2s ease-out;
+}
+
+.main-item-img {
+  height: 74px;
+  transform: translate(0px, -10px);
+  transition: all 0.64s ease;
+}
+
+.main-item:hover .main-item-text {
+  opacity: 1;
+}
+
+.main-item:hover .main-item-text {
+  transform: translate(0px, 0px);
 }
