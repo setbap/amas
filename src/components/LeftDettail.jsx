@@ -19,7 +19,7 @@ function LeftDettail(props) {
   };
 
   const dontHaveNon = () => {
-    const res = props.foods.findIndex(food => food.parentId === "3");
+    const res = props.foods.findIndex(food => food.parentId === "0");
     return res === -1;
   };
 
@@ -45,11 +45,11 @@ function LeftDettail(props) {
       </div>
     </CSSTransition>
   );
-  const meat = props.foods.filter(food => food.parentId === "0");
-  const sabzi = props.foods.filter(food => food.parentId === "1");
+  const meat = props.foods.filter(food => food.parentId === "3");
+  const sabzi = props.foods.filter(food => food.parentId === "4");
   const panir = props.foods.filter(food => food.parentId === "2");
-  const non = props.foods.filter(food => food.parentId === "3");
-  const sos = props.foods.filter(food => food.parentId === "4");
+  const non = props.foods.filter(food => food.parentId === "0");
+  const sos = props.foods.filter(food => food.parentId === "1");
 
   return (
     <div className="text-right w-100 mx-2">

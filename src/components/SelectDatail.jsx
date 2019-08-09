@@ -9,7 +9,7 @@ import Sabzi from "./selectedDetail/SelectDatail_sabzi";
 import Sos from "./selectedDetail/SelectDatail_sos";
 
 function SelectDatail({ num }) {
-  const items = [Ghosht, Sabzi, Panir, Noon, Sos];
+  const items = [Noon, Sos, Panir, Ghosht, Sabzi];
   return (
     <div className=" si-box si-box-mg border-0 rounded-pill">
       <CSSTransition

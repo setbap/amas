@@ -11,7 +11,7 @@ function SelectDatail() {
   const foods = store.getState().foods;
   const isSelected = id => {
     const res = foods.findIndex(food => food.id === id);
-    console.log("resss", res);
+
     return res !== -1;
   };
   // const images = [
@@ -19,7 +19,6 @@ function SelectDatail() {
   //   { src: chiz2, name: "دو" },
   //   { src: chiz3, name: "سه" }
   // ];
-  console.log(store.getState());
 
   return (
     <div

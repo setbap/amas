@@ -10,7 +10,6 @@ function SelectDatail() {
   const foods = store.getState().foods;
   const isSelected = id => {
     const res = foods.findIndex(food => food.id === id);
-    console.log("resss", res);
     return res !== -1;
   };
   return (

@@ -4,11 +4,11 @@ export const SELECT_NOON = "SELECT_NOON";
 export const REMOVE_FOOD = "REMOVE_FOOD";
 
 const parts = [
-  { id: 1, name: "گوشت", color: "#984848" },
-  { id: 2, name: "سبزیجات", color: "#37a978" },
-  { id: 3, name: "پنیر", color: "#904cea" },
-  { id: 4, name: "نان", color: "#492828" },
-  { id: 5, name: "سس", color: "#eabc4c" }
+  { id: 0, name: "نان", color: "#492828" },
+  { id: 1, name: "سس", color: "#eabc4c" },
+  { id: 2, name: "پنیر", color: "#904cea" },
+  { id: 3, name: "گوشت", color: "#984848" },
+  { id: 4, name: "سبزیجات", color: "#37a978" }
 ];
 
 export const selectedPart = num => {
@@ -21,7 +21,7 @@ export const selectedPart = num => {
 
 export const selectedFood = food => {
   const part = food.parentId;
-  if (part === "3") {
+  if (part === "0") {
     return {
       type: SELECT_NOON,
       payload: food

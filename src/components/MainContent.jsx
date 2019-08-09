@@ -9,11 +9,11 @@ import { connect } from "react-redux";
 
 function MainContent(props) {
   const data = [
-    { image: binam, id: 4, name: "نان", color: "#492828" },
-    { image: sos, id: 5, name: "سس", color: "#eabc4c" },
-    { image: panir, id: 3, name: "پنیر", color: "#904cea" },
-    { image: gosht, id: 1, name: "گوشت", color: "#984848" },
-    { image: sabzijat, id: 2, name: "سبزیجات", color: "#37a978" }
+    { image: binam, id: 0, name: "نان", color: "#492828" },
+    { image: sos, id: 1, name: "سس", color: "#eabc4c" },
+    { image: panir, id: 2, name: "پنیر", color: "#904cea" },
+    { image: gosht, id: 3, name: "گوشت", color: "#984848" },
+    { image: sabzijat, id: 4, name: "سبزیجات", color: "#37a978" }
   ];
   return (
     <div className="main-box d-flex align-items-end   justify-content-around">
@@ -21,12 +21,12 @@ function MainContent(props) {
         <div
           key={index}
           onClick={() => {
-            props.selector(item.id - 1);
-            props.selectedPart(item.id - 1);
+            props.selector(item.id);
+            props.selectedPart(item.id);
           }}
           style={{ background: item.color }}
           className={`main-item mx36 d-flex flex-column align-items-center justify-content-between ${
-            item.id - 1 === props.num ? "s-active" : ""
+            item.id === props.num ? "s-active" : ""
           }`}
         >
           <h5 className="main-item-text">{item.name}</h5>

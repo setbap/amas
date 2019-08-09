@@ -7,7 +7,7 @@ import MainContent from "./components/MainContent";
 import LeftDettail from "./components/LeftDettail";
 import { connect } from "react-redux";
 function App(props) {
-  const [selecteditem, setSelecteditem] = useState(3);
+  const [selecteditem, setSelecteditem] = useState(0);
 
   const selector = num => {
     console.log(num);
@@ -25,15 +25,15 @@ function App(props) {
     return selecteditem;
   };
 
-  // const increaseNum = () => {
-  //   setSelecteditem(selecteditem + 1);
-  //   return selecteditem;
-  // };
+  const increaseNum = () => {
+    selector(selecteditem + 1);
+    return selecteditem;
+  };
 
-  // const dencreaseNum = () => {
-  //   setSelecteditem(selecteditem - 1);
-  //   return selecteditem;
-  // };
+  const dencreaseNum = () => {
+    selector(selecteditem - 1);
+    return selecteditem;
+  };
 
   return (
     <>
@@ -69,7 +69,16 @@ function App(props) {
           </h3>
           <Pizza />
           <SelectDatail num={selecteditem} />
-          <MainContent num={selecteditem} selector={selector} />
+          <div className="d-flex justify-content-around align-self-center align-items-center w-100">
+            <h5 className="p-2 bg-danger rounded-lg" onClick={dencreaseNum}>
+              {"قبلی"}
+            </h5>
+
+            <MainContent num={selecteditem} selector={selector} />
+            <h5 className="p-2 bg-danger rounded-lg" onClick={increaseNum}>
+              {"بعدی"}
+            </h5>
+          </div>
         </Col>
       </Row>
     </>
