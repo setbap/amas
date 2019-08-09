@@ -18,6 +18,11 @@ function LeftDettail(props) {
     return sum;
   };
 
+  const dontHaveNon = () => {
+    const res = props.foods.findIndex(food => food.parentId === "3");
+    return res === -1;
+  };
+
   const pill = (name, id) => (
     <CSSTransition key={id} timeout={500} classNames="move">
       <div
@@ -106,8 +111,9 @@ function LeftDettail(props) {
       </div>
       <div className="mt-5 d-flex flex-row-reverse justify-content-around">
         <Button
+          disabled={dontHaveNon()}
           outline
-          color="success"
+          color={dontHaveNon() ? "secondary" : "success"}
           className="border-1 p-2 px-4 rounded-pill"
         >
           <h2>سفارش </h2>
@@ -116,6 +122,9 @@ function LeftDettail(props) {
           <h3 className="mx-1 text-success">{totalPrice()}</h3> <h4>تومان</h4>
         </span>
       </div>
+      <p className="p-4 text-center">
+        {dontHaveNon() ? "تا قبل از انتخاب نان نمیتوانید سفارش دهید" : ""}
+      </p>
     </div>
   );
 }
