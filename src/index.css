@@ -30,8 +30,15 @@ body {
 .si-box {
   border-radius: 16px;
   box-sizing: border-box;
-  background-color: rgba(152, 72, 72, 0.46);
   padding: 4px;
+  height: 38px;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.pa {
+  position: absolute;
+  background-color: rgba(152, 72, 72, 0.46);
 }
 
 .si-box-item {
@@ -77,6 +84,20 @@ body {
   border: 2px solid #eabc4c;
 }
 
+.s-active {
+  height: 142px;
+  border: 2px solid greenyellow;
+}
+.s-active .main-item-text {
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
+.s-active .main-item-img {
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
 .main-item-text {
   padding: 14px;
 }
@@ -98,19 +119,68 @@ body {
   font-size: 18px;
   font-weight: 700;
   opacity: 0;
-  transition: all 0.44s 0.2s ease-out;
+  transition: transform 0.44s 0.2s ease-out, opacity 0.44s 0s ease-out;
 }
 
 .main-item-img {
   height: 74px;
-  transform: translate(0px, -10px);
+  transform: translate(0px, -17px);
   transition: all 0.64s ease;
 }
 
 .main-item:hover .main-item-text {
   opacity: 1;
+  transform: translate(0px, 0px);
+}
+.main-item:hover .main-item-img {
+  opacity: 1;
+  transform: translate(0px, 0px);
 }
 
-.main-item:hover .main-item-text {
-  transform: translate(0px, 0px);
+/* 
+select animation
+ */
+.alert-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.alert-exit {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.alert-exit-active {
+  opacity: 0;
+  position: absolute;
+
+  /* transform: translateY(40px); */
+  transition: opacity 300ms, transform 300ms;
+}
+
+.move-enter {
+  opacity: 0.01;
+
+  /* transform: translate(-40px, 0); */
+}
+
+.move-enter-active {
+  opacity: 1;
+
+  /* transform: translate(0, 0); */
+  transition: all 500ms ease-in;
+}
+
+.move-exit {
+  opacity: 1;
+  /* transform: translate(0, 0); */
+}
+
+.move-exit-active {
+  opacity: 0.01;
+  /* transform: translate(40px, 0); */
+  transition: all 500ms ease-in;
 }

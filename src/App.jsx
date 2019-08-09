@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, NavbarBrand, Row, Col } from "reactstrap";
 import Pizza from "./components/Pizza";
 import SelectDatail from "./components/SelectDatail";
 import MainContent from "./components/MainContent";
 import LeftDettail from "./components/LeftDettail";
+import { connect } from "react-redux";
+function App(props) {
+  const [selecteditem, setSelecteditem] = useState(0);
 
-function App() {
+  const selector = num => {
+    console.log(num);
+
+    if (typeof num !== "number") {
+      setSelecteditem(0);
+    }
+    if (num < 0) {
+      setSelecteditem(4);
+    } else if (num > 4) {
+      setSelecteditem(0);
+    } else {
+      setSelecteditem(num);
+    }
+    return selecteditem;
+  };
+
+  // const increaseNum = () => {
+  //   setSelecteditem(selecteditem + 1);
+  //   return selecteditem;
+  // };
+
+  // const dencreaseNum = () => {
+  //   setSelecteditem(selecteditem - 1);
+  //   return selecteditem;
+  // };
+
   return (
     <>
       <Navbar color="dark" dark>
@@ -40,14 +68,23 @@ function App() {
           }}
           className="d-flex flex-column align-items-center text-center"
         >
-          <h3 className="mx-0 mg-top-16">چیز مورد نظر خود را انتخاب کنید</h3>
+          <h3 className="mx-0 mg-top-16">
+            {[props.name]} مورد نظر خود را انتخاب کنید
+          </h3>
           <Pizza />
-          <SelectDatail />
-          <MainContent />
+          <SelectDatail num={selecteditem} />
+          <MainContent num={selecteditem} selector={selector} />
         </Col>
       </Row>
     </>
   );
 }
+const mapStateToProps = state => ({
+  name: state.name
+});
 
-export default App;
+// in kar kamlan eshteahe baese render koli mishe vali hesesh nist khodaee dir shode
+export default connect(
+  mapStateToProps,
+  {}
+)(App);

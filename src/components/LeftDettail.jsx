@@ -1,100 +1,108 @@
 import React from "react";
-import gosht from "../assets/left/meat.png";
-import sabzijat from "../assets/left/broccoli.png";
-import panir from "../assets/left/panir.png";
-import binam from "../assets/left/rolling-pin.png";
+import goshtImg from "../assets/left/meat.png";
+import sabzijatImg from "../assets/left/broccoli.png";
+import panirImg from "../assets/left/panir.png";
+import binamImg from "../assets/left/rolling-pin.png";
 import { Button } from "reactstrap";
+import { removeFood } from "../action";
+import sosImg from "../assets/left/sos.png";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import sos from "../assets/left/sos.png";
+// import { CHANGE_MAME } from '../action';
+import { connect } from "react-redux";
 
-function LeftDettail() {
-  const pill = (
-    <div
-      className="border d-flex m-1  border-light py-0 px-2 rounded-pill"
-      style={{ direction: "rtl" }}
-    >
-      <h6
-        style={{ fontSize: "12px", direction: "rtl" }}
-        className="  px-1 pt-2"
+function LeftDettail(props) {
+  const totalPrice = () => {
+    let sum = 0;
+    props.foods.forEach(food => (sum += food.price));
+    return sum;
+  };
+
+  const pill = (name, id) => (
+    <CSSTransition key={id} timeout={500} classNames="move">
+      <div
+        className="border d-flex m-1  border-light py-0 px-2 rounded-pill"
+        style={{ direction: "rtl" }}
       >
-        گی{" "}
-      </h6>
-      <span
-        style={{ fontSize: "9px", cursor: "pointer" }}
-        className=" border px-1 bg-light text-body py-0 my-2  rounded-pill"
-      >
-        x
-      </span>
-    </div>
+        <h6
+          style={{ fontSize: "12px", direction: "rtl" }}
+          className="  px-1 pt-2"
+        >
+          {name}
+        </h6>
+        <span
+          style={{ fontSize: "9px", cursor: "pointer" }}
+          onClick={() => props.removeFood(id)}
+          className=" border px-1 bg-light text-body py-0 my-2  rounded-pill"
+        >
+          x
+        </span>
+      </div>
+    </CSSTransition>
   );
+  const meat = props.foods.filter(food => food.parentId === "0");
+  const sabzi = props.foods.filter(food => food.parentId === "1");
+  const panir = props.foods.filter(food => food.parentId === "2");
+  const non = props.foods.filter(food => food.parentId === "3");
+  const sos = props.foods.filter(food => food.parentId === "4");
 
   return (
     <div className="text-right w-100 mx-2">
       <div className="d-flex justify-content-start flex-row-reverse">
-        <img src={binam} alt="بی نام" className="ml-2" />
+        <img src={binamImg} alt="بی نام" className="ml-2" />
         <h5>بی نام</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
-        {pill}
-        {pill}
-        {pill}
+        <TransitionGroup className="items-section__list">
+          {non.map(item => {
+            return pill(item.name, item.id);
+          })}
+        </TransitionGroup>
       </div>
 
       {/*  ////////////// */}
 
       <div className="d-flex justify-content-start flex-row-reverse">
-        <img src={sos} alt="سس" className="ml-2" />
+        <img src={sosImg} alt="سس" className="ml-2" />
         <h5>سس</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
+        {sos.map(item => {
+          return pill(item.name, item.id);
+        })}
       </div>
       {/*  ////////////// */}
 
       <div className="d-flex justify-content-start flex-row-reverse">
-        <img src={panir} alt="پنیز" className="ml-2" />
+        <img src={panirImg} alt="پنیز" className="ml-2" />
         <h5>پنیز</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
-        {pill}
-        {pill}
-        {pill}
+        {panir.map(item => {
+          return pill(item.name, item.id);
+        })}
       </div>
       {/*  ////////////// */}
 
       <div className="d-flex justify-content-start flex-row-reverse">
-        <img src={gosht} alt="گوشت" className="ml-2" />
+        <img src={goshtImg} alt="گوشت" className="ml-2" />
         <h5>گوشت</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
+        {meat.map(item => {
+          return pill(item.name, item.id);
+        })}
       </div>
       {/*  ////////////// */}
 
       <div className="d-flex justify-content-start flex-row-reverse">
-        <img src={sabzijat} alt="سبزیجات" className="ml-2" />
+        <img src={sabzijatImg} alt="سبزیجات" className="ml-2" />
         <h5>سبزیجات</h5>
       </div>
       <div className="d-flex flex-wrap flex-row-reverse my-3 ">
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
-        {pill}
+        {sabzi.map(item => {
+          return pill(item.name, item.id);
+        })}
       </div>
       <div className="mt-5 d-flex flex-row-reverse justify-content-around">
         <Button
@@ -105,11 +113,17 @@ function LeftDettail() {
           <h2>سفارش </h2>
         </Button>
         <span className="pt-3 d-flex">
-          <h3 className="mx-1 text-success">30000</h3> <h4>تومان</h4>
+          <h3 className="mx-1 text-success">{totalPrice()}</h3> <h4>تومان</h4>
         </span>
       </div>
     </div>
   );
 }
+const mapStateToProps = state => ({
+  foods: state.foods
+});
 
-export default LeftDettail;
+export default connect(
+  mapStateToProps,
+  { removeFood }
+)(LeftDettail);

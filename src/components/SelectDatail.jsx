@@ -1,23 +1,57 @@
 import React from "react";
-import Tooltip from "react-tooltip-lite";
-import chiz1 from "../assets/chiz1.png";
-import chiz2 from "../assets/chiz2.png";
-import chiz3 from "../assets/chiz3.png";
-function SelectDatail() {
-  const images = [
-    { src: chiz1, name: "یک" },
-    { src: chiz2, name: "دو" },
-    { src: chiz3, name: "سه" }
-  ];
+import { CSSTransition } from "react-transition-group";
+
+// hard code is shet but feeling sleep so shet it
+import Noon from "./selectedDetail/SelectDatail_binam";
+import Ghosht from "./selectedDetail/SelectDatail_gosht";
+import Panir from "./selectedDetail/SelectDatail_panir";
+import Sabzi from "./selectedDetail/SelectDatail_sabzi";
+import Sos from "./selectedDetail/SelectDatail_sos";
+
+function SelectDatail({ num }) {
+  const items = [Ghosht, Sabzi, Panir, Noon, Sos];
   return (
-    <div className="si-box si-box-mg d-flex border-0 rounded-pill">
-      {images.map((image, index) => (
-        <div className="si-box-item" key={index}>
-          <Tooltip content={image.name}>
-            <img src={image.src} alt="detail" />{" "}
-          </Tooltip>
-        </div>
-      ))}
+    <div className=" si-box si-box-mg border-0 rounded-pill">
+      <CSSTransition
+        in={num === 0}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+      >
+        {items[0]}
+      </CSSTransition>
+      <CSSTransition
+        in={num === 1}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+      >
+        {items[1]}
+      </CSSTransition>
+      <CSSTransition
+        in={num === 2}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+      >
+        {items[2]}
+      </CSSTransition>
+      <CSSTransition
+        in={num === 3}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+      >
+        {items[3]}
+      </CSSTransition>
+      <CSSTransition
+        in={num === 4}
+        timeout={300}
+        classNames="alert"
+        unmountOnExit
+      >
+        {items[4]}
+      </CSSTransition>
     </div>
   );
 }
