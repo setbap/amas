@@ -56,7 +56,7 @@ body {
   background-color: rgba(90, 255, 57, 0.44);
 }
 
-.si-box-item:hover {
+.si-box-item:active {
   border: 2px solid yellow;
 }
 

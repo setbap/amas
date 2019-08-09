@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { CHANGE_MAME, SELECT_FOOD, SELECT_NOON, REMOVE_FOOD } from "./action";
-const initState = "گوشت";
+const initState = "نان";
 
 const name = (state = initState, action) => {
   switch (action.type) {
